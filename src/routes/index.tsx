@@ -110,7 +110,7 @@ function Hero() {
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 h-full flex flex-col justify-center items-center text-center text-beige px-5 sm:px-6 pt-20 pb-20"
+        className="relative z-10 h-full flex flex-col justify-center items-center text-center text-beige px-5 sm:px-6 pt-32 pb-20"
       >
         {/* Label */}
         <motion.div
@@ -123,7 +123,7 @@ function Hero() {
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.35 }}
-          className="font-display text-[clamp(2.6rem,8.5vw,6.5rem)] leading-[1.02] max-w-4xl text-balance mx-auto"
+          className="font-display text-[clamp(2.6rem,5.5vw,4.2rem)] leading-[1.05] max-w-4xl text-balance mx-auto"
         >
           Discover the hidden
           <br />
