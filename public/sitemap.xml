@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/about</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/rooms</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/packages</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/experiences</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/dining</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/gallery</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/blog</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/booking</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/contact</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/faq</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/privacy</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/terms</loc><changefreq>weekly</changefreq></url>
+</urlset>
