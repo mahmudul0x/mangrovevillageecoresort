@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail, Facebook, Instagram, MessageCircle } from "lucide-react";
-import logo from "@/assets/logo-mangrove.png";
+import logo from "@/assets/logo.png";
 
 export function Footer() {
   return (
@@ -10,11 +10,11 @@ export function Footer() {
       <div className="container mx-auto px-5 sm:px-6 pt-14 md:pt-20 pb-10 relative">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 mb-12 md:mb-16">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="Mangrove Village Eco Resort" className="w-10 h-10 object-contain" />
-              <div className="leading-tight">
-                <div className="font-display text-lg">Mangrove Village</div>
-                <div className="text-[10px] uppercase tracking-[0.25em] opacity-70">Eco Resort</div>
+            <div className="flex items-center gap-3 mb-4">
+              <img src={logo} alt="Mangrove Village Eco Resort" className="w-14 h-14 object-contain shrink-0" />
+              <div className="leading-none">
+                <div className="font-display text-[1.1rem] tracking-wide text-beige font-light">Mangrove Village</div>
+                <div className="text-[0.6rem] uppercase tracking-[0.3em] text-beige/50 mt-1">Eco Resort</div>
               </div>
             </div>
             <p className="text-sm text-beige/70 leading-relaxed font-display italic">

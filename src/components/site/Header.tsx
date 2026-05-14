@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo-mangrove.png";
+import logo from "@/assets/logo.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -40,11 +40,11 @@ export function Header() {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
-          <img src={logo} alt="Mangrove Village Eco Resort" className="w-10 h-10 object-contain" />
-          <div className="leading-tight text-beige">
-            <div className="font-display text-lg tracking-tight">Mangrove Village</div>
-            <div className="text-[10px] uppercase tracking-[0.25em] opacity-70">Eco Resort</div>
+        <Link to="/" className="flex items-center gap-3 group">
+          <img src={logo} alt="Mangrove Village Eco Resort" className="w-14 h-14 object-contain shrink-0" />
+          <div className="leading-none">
+            <div className="font-display text-[1.15rem] tracking-wide text-beige font-light">Mangrove Village</div>
+            <div className="text-[0.6rem] uppercase tracking-[0.3em] text-beige/60 mt-1">Eco Resort</div>
           </div>
         </Link>
 
