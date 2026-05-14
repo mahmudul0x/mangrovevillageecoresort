@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { AnimatePresence, motion as m } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Play, Leaf, Waves, Sun, Compass, Heart, Star, MapPin, Quote } from "lucide-react";
+import { ArrowRight, Play, Leaf, Waves, Sun, Compass, Heart, Star, MapPin, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import heroImg from "@/assets/hero-mangrove.jpg";
 import cottageImg from "@/assets/cottage-river.jpg";
 import boatImg from "@/assets/boat-sunrise.jpg";
@@ -11,6 +11,9 @@ import roomImg from "@/assets/room-interior.jpg";
 import villageImg from "@/assets/village-life.jpg";
 import mangroveImg from "@/assets/mangrove-roots.jpg";
 import bbqImg from "@/assets/bbq-night.jpg";
+import img11 from "@/assets/11.jpeg";
+import img12 from "@/assets/12.jpg";
+import img13 from "@/assets/13.jpg";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionLabel } from "@/components/site/SectionLabel";
 
@@ -72,8 +75,9 @@ function Hero() {
     { img: boatImg, alt: "Wooden boat drifting at sunrise" },
     { img: mangroveImg, alt: "Mangrove roots in tidal water" },
     { img: cottageImg, alt: "Eco cottage on the river" },
-    { img: villageImg, alt: "Bangladeshi village life" },
-    { img: bbqImg, alt: "Riverside bonfire BBQ night" },
+    { img: img11, alt: "Mangrove Village Eco Resort" },
+    { img: img12, alt: "Mangrove Village Eco Resort" },
+    { img: img13, alt: "Mangrove Village Eco Resort" },
   ];
   const [active, setActive] = useState(0);
   useEffect(() => {
@@ -82,7 +86,7 @@ function Hero() {
   }, [slides.length]);
 
   return (
-    <section ref={ref} className="relative h-[100svh] min-h-[560px] md:min-h-[640px] w-full overflow-hidden">
+    <section ref={ref} className="relative h-[100svh] min-h-[600px] max-h-[900px] w-full overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0">
         <AnimatePresence mode="sync">
           <m.img
@@ -91,58 +95,107 @@ function Hero() {
             alt={slides[active].alt}
             width={1920}
             height={1080}
-            initial={{ opacity: 0, scale: 1.08 }}
-            animate={{ opacity: 1, scale: 1.15 }}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1.12 }}
             exit={{ opacity: 0 }}
             transition={{ opacity: { duration: 1.4 }, scale: { duration: 7, ease: "linear" } }}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
         </AnimatePresence>
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-overlay" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.18_0.025_150/0.5)] via-transparent to-[oklch(0.14_0.025_150/0.9)]" />
 
-      <motion.div style={{ opacity }} className="relative z-10 h-full container mx-auto px-5 sm:px-6 flex flex-col justify-center items-center text-center text-beige pt-20 pb-28 md:pt-0 md:pb-0">
+      {/* Layered gradient — stronger on mobile for readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.14_0.025_150/0.55)] via-[oklch(0.14_0.025_150/0.3)] to-[oklch(0.10_0.025_150/0.92)]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.12_0.025_150/0.3)] via-transparent to-transparent md:hidden" />
+
+      <motion.div
+        style={{ opacity }}
+        className="relative z-10 h-full flex flex-col justify-center items-center text-center text-beige px-5 sm:px-6 pt-20 pb-20"
+      >
+        {/* Label */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-sunset mb-4 sm:mb-6 flex items-center justify-center gap-3"
+          initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
+          className="text-[10px] uppercase tracking-[0.35em] text-sunset mb-3 sm:mb-5 flex items-center justify-center gap-3"
         >
-          <span className="w-10 h-px bg-sunset" /> Sundarbans · Bangladesh
+          <span className="w-8 h-px bg-sunset/70" /> Sundarbans · Bangladesh <span className="w-8 h-px bg-sunset/70" />
         </motion.div>
+
+        {/* Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5 }}
-          className="font-display text-[clamp(2.2rem,7vw,6.5rem)] leading-[1] max-w-5xl text-balance mx-auto"
+          initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.35 }}
+          className="font-display text-[clamp(2.6rem,8.5vw,6.5rem)] leading-[1.02] max-w-4xl text-balance mx-auto"
         >
-          Discover the hidden<br />
+          Discover the hidden
+          <br />
           <span className="italic font-light text-gradient-sunset">beauty of Sundarbans</span>
         </motion.h1>
+
+        {/* Sub-copy */}
         <motion.p
-          initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.7 }}
-          className="mt-5 sm:mt-8 max-w-xl text-sm sm:text-base md:text-lg text-beige/80 leading-relaxed mx-auto"
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.5 }}
+          className="mt-4 sm:mt-6 max-w-sm sm:max-w-lg text-sm sm:text-base md:text-lg text-beige/75 leading-relaxed mx-auto"
         >
-          An eco-luxury retreat where rivers, mangroves, village culture and unforgettable
-          experiences come together.
+          An eco-luxury retreat where rivers, mangroves, village culture and
+          unforgettable experiences come together.
         </motion.p>
+
+        {/* CTA buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.9 }}
-          className="mt-7 sm:mt-10 flex flex-wrap gap-3 sm:gap-4 justify-center"
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.65 }}
+          className="mt-6 sm:mt-8 flex flex-col xs:flex-row gap-3 justify-center w-full max-w-xs sm:max-w-none"
         >
-          <Link to="/booking" className="group inline-flex items-center gap-2 bg-sunset hover:brightness-110 text-accent-foreground font-medium px-6 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base rounded-full transition-all hover:scale-[1.03] shadow-glow">
+          <Link
+            to="/booking"
+            className="group inline-flex items-center justify-center gap-2 bg-sunset hover:brightness-110 text-accent-foreground font-medium px-7 py-3.5 text-sm sm:text-base rounded-full transition-all hover:scale-[1.03] shadow-glow"
+          >
             Book Your Stay <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link to="/packages" className="inline-flex items-center gap-2 glass text-beige hover:bg-beige/15 font-medium px-6 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base rounded-full transition-all">
+          <Link
+            to="/packages"
+            className="inline-flex items-center justify-center gap-2 glass text-beige hover:bg-beige/15 font-medium px-7 py-3.5 text-sm sm:text-base rounded-full transition-all"
+          >
             Explore Packages
           </Link>
         </motion.div>
+
+        {/* Stats row — visible on mobile to fill space */}
+        <motion.div
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9, duration: 0.8 }}
+          className="mt-8 sm:mt-10 flex items-center gap-6 sm:gap-10 text-beige/60"
+        >
+          {[["12+", "Cottages"], ["4.9★", "Rating"], ["1.5k+", "Guests"]].map(([v, l]) => (
+            <div key={l} className="text-center">
+              <div className="font-display text-lg sm:text-xl text-beige/90">{v}</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] mt-0.5">{l}</div>
+            </div>
+          ))}
+        </motion.div>
       </motion.div>
 
+      {/* Scroll hint — desktop only */}
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 1 }}
-        className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-beige/60 flex-col items-center gap-2 text-[10px] uppercase tracking-[0.4em]"
+        className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-beige/50 flex-col items-center gap-2 text-[10px] uppercase tracking-[0.4em]"
       >
         Scroll
-        <span className="w-px h-12 bg-gradient-to-b from-beige/60 to-transparent animate-pulse" />
+        <span className="w-px h-10 bg-gradient-to-b from-beige/50 to-transparent animate-pulse" />
       </motion.div>
+
+      {/* Prev / Next buttons */}
+      <button
+        onClick={() => setActive((i) => (i - 1 + slides.length) % slides.length)}
+        aria-label="Previous slide"
+        className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full glass flex items-center justify-center text-beige hover:bg-beige/20 transition-all"
+      >
+        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+      </button>
+      <button
+        onClick={() => setActive((i) => (i + 1) % slides.length)}
+        aria-label="Next slide"
+        className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full glass flex items-center justify-center text-beige hover:bg-beige/20 transition-all"
+      >
+        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+      </button>
 
       {/* Slider indicators */}
       <div className="absolute bottom-5 md:bottom-10 left-1/2 md:left-12 -translate-x-1/2 md:translate-x-0 z-20 flex items-center gap-2 md:gap-3">
