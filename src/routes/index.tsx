@@ -142,7 +142,7 @@ function Hero() {
         {/* CTA buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.65 }}
-          className="mt-6 sm:mt-8 flex flex-col xs:flex-row gap-3 justify-center w-full max-w-xs sm:max-w-none"
+          className="mt-6 sm:mt-8 flex flex-row flex-wrap gap-3 justify-center"
         >
           <Link
             to="/booking"
