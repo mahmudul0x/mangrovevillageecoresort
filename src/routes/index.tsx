@@ -115,9 +115,13 @@ function Hero() {
         {/* Label */}
         <motion.div
           initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-[10px] uppercase tracking-[0.35em] text-sunset mb-3 sm:mb-5 flex items-center justify-center gap-3"
+          className="text-[11px] uppercase tracking-[0.4em] mb-3 sm:mb-5 flex items-center justify-center gap-3"
         >
-          <span className="w-8 h-px bg-sunset/70" /> Sundarbans · Bangladesh <span className="w-8 h-px bg-sunset/70" />
+          <span className="w-10 h-px bg-sunset" />
+          <span className="px-3 py-1 rounded-full border border-sunset/50 bg-sunset/10 text-sunset backdrop-blur-sm">
+            Sundarbans · Bangladesh
+          </span>
+          <span className="w-10 h-px bg-sunset" />
         </motion.div>
 
         {/* Headline */}
@@ -161,7 +165,7 @@ function Hero() {
         {/* Stats row — visible on mobile to fill space */}
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9, duration: 0.8 }}
-          className="mt-8 sm:mt-10 flex items-center gap-6 sm:gap-10 text-beige/60"
+          className="mt-24 sm:mt-28 flex items-center gap-6 sm:gap-10 text-beige/60"
         >
           {[["12+", "Cottages"], ["4.9★", "Rating"], ["1.5k+", "Guests"]].map(([v, l]) => (
             <div key={l} className="text-center">
