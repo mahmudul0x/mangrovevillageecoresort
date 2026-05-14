@@ -247,36 +247,80 @@ function BookingPage() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <aside className="lg:sticky lg:top-32 bg-[oklch(0.18_0.025_150)] text-beige rounded-3xl p-6 sm:p-8 space-y-5">
-              <div className="flex gap-4 items-center pb-5 border-b border-beige/10">
-                <img src={room.img} alt={room.name} className="w-20 h-20 rounded-xl object-cover shrink-0" />
-                <div>
-                  <div className="text-xs uppercase tracking-widest text-sunset">Your stay</div>
-                  <div className="font-display text-lg leading-tight">{room.name}</div>
+            <aside className="lg:sticky lg:top-32 rounded-3xl overflow-hidden shadow-glow border border-border">
+              {/* Room image banner */}
+              <div className="relative h-36 sm:h-44">
+                <img src={room.img} alt={room.name} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.14_0.025_150/0.85)] via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-5 right-5">
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-sunset mb-0.5">Your stay</div>
+                  <div className="font-display text-xl text-beige leading-tight">{room.name}</div>
                 </div>
               </div>
-              <div className="text-sm space-y-2 text-beige/80">
-                <Line k="Check-in" v={checkIn} />
-                <Line k="Check-out" v={checkOut} />
-                <Line k="Nights" v={String(nights)} />
-                <Line k="Guests" v={String(guests)} />
-                <Line k="Package" v={pack.label} />
+
+              {/* Body */}
+              <div className="bg-card p-5 sm:p-6 space-y-5">
+                {/* Stay details */}
+                <div className="grid grid-cols-2 gap-2 text-sm">
+                  {[
+                    ["Check-in", checkIn],
+                    ["Check-out", checkOut],
+                    ["Nights", String(nights)],
+                    ["Guests", String(guests)],
+                  ].map(([k, v]) => (
+                    <div key={k} className="bg-beige rounded-xl px-3 py-2.5 border border-border">
+                      <div className="text-[10px] uppercase tracking-widest text-muted-foreground mb-0.5">{k}</div>
+                      <div className="font-medium text-forest text-sm">{v}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="bg-beige rounded-xl px-3 py-2.5 border border-border text-sm">
+                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground mb-0.5">Package</div>
+                  <div className="font-medium text-forest">{pack.label}</div>
+                </div>
+
+                {/* Price breakdown */}
+                <div className="border-t border-border pt-4 space-y-2.5 text-sm">
+                  <div className="flex justify-between text-muted-foreground">
+                    <span>Room × {nights} night{nights > 1 ? "s" : ""}</span>
+                    <span className="text-foreground font-medium">৳ {(room.priceNum * nights).toLocaleString()}</span>
+                  </div>
+                  {pack.price > 0 && (
+                    <div className="flex justify-between text-muted-foreground">
+                      <span>Package</span>
+                      <span className="text-foreground font-medium">৳ {pack.price.toLocaleString()}</span>
+                    </div>
+                  )}
+                  {discount > 0 && (
+                    <div className="flex justify-between text-sunset">
+                      <span>Coupon (MANGROVE10)</span>
+                      <span>−৳ {discount.toLocaleString()}</span>
+                    </div>
+                  )}
+                  <div className="flex justify-between text-muted-foreground">
+                    <span>Service & VAT (5%)</span>
+                    <span className="text-foreground font-medium">৳ {tax.toLocaleString()}</span>
+                  </div>
+                </div>
+
+                {/* Total */}
+                <div className="rounded-2xl bg-gradient-forest p-4 flex items-center justify-between">
+                  <span className="text-beige/70 text-sm uppercase tracking-widest">Total</span>
+                  <span className="font-display text-3xl text-sunset">৳ {total.toLocaleString()}</span>
+                </div>
+
+                {/* Perks */}
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {["Free cancellation up to 48 hrs", "Pickup from Khulna available", "Instant WhatsApp confirmation"].map((t) => (
+                    <li key={t} className="flex gap-2 items-start">
+                      <span className="mt-0.5 w-4 h-4 rounded-full bg-sunset/15 flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 text-sunset" strokeWidth={3} />
+                      </span>
+                      {t}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="border-t border-beige/10 pt-4 space-y-2 text-sm">
-                <Line k={`Room × ${nights}`} v={`৳ ${(room.priceNum * nights).toLocaleString()}`} />
-                {pack.price > 0 && <Line k="Package" v={`৳ ${pack.price.toLocaleString()}`} />}
-                {discount > 0 && <Line k="Coupon (MANGROVE10)" v={`-৳ ${discount.toLocaleString()}`} accent />}
-                <Line k="Service & VAT (5%)" v={`৳ ${tax.toLocaleString()}`} />
-              </div>
-              <div className="border-t border-beige/10 pt-4 flex items-baseline justify-between">
-                <span className="text-beige/70 text-sm">Total</span>
-                <span className="font-display text-3xl text-sunset">৳ {total.toLocaleString()}</span>
-              </div>
-              <ul className="pt-4 space-y-2 text-sm text-beige/80">
-                <li className="flex gap-2"><Check className="w-4 h-4 text-sunset shrink-0" /><span>Free cancellation up to 48 hrs</span></li>
-                <li className="flex gap-2"><Check className="w-4 h-4 text-sunset shrink-0" /><span>Pickup from Khulna available</span></li>
-                <li className="flex gap-2"><Check className="w-4 h-4 text-sunset shrink-0" /><span>Instant WhatsApp confirmation</span></li>
-              </ul>
             </aside>
           </Reveal>
         </div>

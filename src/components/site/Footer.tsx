@@ -59,11 +59,15 @@ export function Footer() {
               <button className="bg-sunset text-accent-foreground px-5 rounded-r-full text-sm font-medium hover:brightness-110">Join</button>
             </form>
             <div className="flex gap-3 mt-6">
-              {[Facebook, Instagram, MessageCircle].map((Icon, i) => (
-                <a key={i} href="#" className="w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-sunset transition-colors">
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
+              <a href="https://www.facebook.com/mangrovevillageecoresort/" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-sunset transition-colors">
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a href="https://www.instagram.com/mangro_village_eco_resort" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-sunset transition-colors">
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a href="https://wa.me/8801710222888" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-sunset transition-colors">
+                <MessageCircle className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
